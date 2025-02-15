@@ -85,15 +85,15 @@
     <comp lib="1" loc="(550,280)" name="OR Gate">
       <a name="size" val="30"/>
     </comp>
-    <comp lib="8" loc="(219,205)" name="Text">
+    <comp lib="8" loc="(215,205)" name="Text">
       <a name="halign" val="left"/>
       <a name="text" val="15.02.2025"/>
     </comp>
-    <comp lib="8" loc="(220,164)" name="Text">
+    <comp lib="8" loc="(220,160)" name="Text">
       <a name="halign" val="left"/>
       <a name="text" val="Kadirzhan Lutfullayev"/>
     </comp>
-    <comp lib="8" loc="(220,184)" name="Text">
+    <comp lib="8" loc="(220,180)" name="Text">
       <a name="halign" val="left"/>
       <a name="text" val="Lab 1"/>
     </comp>
