@@ -1,0 +1,35 @@
+# Ignore CLion-specific files and directories
+.idea/
+*.iml
+cmake-build-*/
+.clion*
+
+# Ignore CMake-generated files
+CMakeCache.txt
+CMakeFiles/
+CMakeLists.txt.user
+cmake_install.cmake
+Makefile
+
+# Ignore compiled binaries and object files
+*.o
+*.obj
+*.so
+*.dll
+*.dylib
+*.exe
+*.out
+*.a
+*.lib
+
+# Ignore log and temporary files
+*.log
+*.tmp
+*.swp
+
+# Ignore JetBrains workspace files
+*.iws
+*.ipr
+
+.DS_Store
+
