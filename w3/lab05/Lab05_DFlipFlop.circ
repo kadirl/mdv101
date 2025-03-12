@@ -77,25 +77,25 @@
       <a name="facing" val="south"/>
     </comp>
     <comp lib="5" loc="(680,570)" name="Hex Digit Display"/>
-    <comp lib="8" loc="(370,445)" name="Text">
-      <a name="halign" val="left"/>
-      <a name="text" val="0 - up"/>
-    </comp>
-    <comp lib="8" loc="(370,520)" name="Text">
+    <comp lib="8" loc="(368,515)" name="Text">
       <a name="halign" val="left"/>
       <a name="text" val="3 - ring"/>
     </comp>
-    <comp lib="8" loc="(370,535)" name="Text">
-      <a name="halign" val="left"/>
-      <a name="text" val="4 - johnson"/>
-    </comp>
-    <comp lib="8" loc="(375,470)" name="Text">
+    <comp lib="8" loc="(369,469)" name="Text">
       <a name="halign" val="left"/>
       <a name="text" val="1 - down"/>
     </comp>
-    <comp lib="8" loc="(375,495)" name="Text">
+    <comp lib="8" loc="(369,492)" name="Text">
       <a name="halign" val="left"/>
       <a name="text" val="2 - decade"/>
+    </comp>
+    <comp lib="8" loc="(369,539)" name="Text">
+      <a name="halign" val="left"/>
+      <a name="text" val="4 - johnson"/>
+    </comp>
+    <comp lib="8" loc="(370,445)" name="Text">
+      <a name="halign" val="left"/>
+      <a name="text" val="0 - up"/>
     </comp>
     <comp loc="(580,590)" name="universal"/>
     <wire from="(320,590)" to="(360,590)"/>
@@ -586,6 +586,26 @@
       <a name="select" val="3"/>
       <a name="selloc" val="tr"/>
       <a name="width" val="4"/>
+    </comp>
+    <comp lib="8" loc="(49,577)" name="Text">
+      <a name="halign" val="left"/>
+      <a name="text" val="3 - ring"/>
+    </comp>
+    <comp lib="8" loc="(50,531)" name="Text">
+      <a name="halign" val="left"/>
+      <a name="text" val="1 - down"/>
+    </comp>
+    <comp lib="8" loc="(50,554)" name="Text">
+      <a name="halign" val="left"/>
+      <a name="text" val="2 - decade"/>
+    </comp>
+    <comp lib="8" loc="(50,601)" name="Text">
+      <a name="halign" val="left"/>
+      <a name="text" val="4 - johnson"/>
+    </comp>
+    <comp lib="8" loc="(51,507)" name="Text">
+      <a name="halign" val="left"/>
+      <a name="text" val="0 - up"/>
     </comp>
     <comp loc="(460,420)" name="up_counter"/>
     <comp loc="(460,510)" name="down_counter"/>
