@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1746362411" />
+    <testcase name="test_bitty_core" classname="tests.bitty_core.test_bitty_core" file="/Users/macbookair/mdv101/w11/lab15/tests/bitty_core/test_bitty_core.py" lineno="11" time="3.6811447143554688" sim_time_ns="400060.002" ratio_time="108678.15123917139" />
+  </testsuite>
+</testsuites>
