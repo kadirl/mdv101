@@ -1,0 +1,232 @@
+# # # # #!/bin/bash
+# # # # declare -a modules=("count_up")
+
+# # # # for mod in "${modules[@]}"
+# # # # do
+# # # #     echo "Running test for $mod"
+# # # #     make MODULE=test.${mod}.test_${mod} TOPLEVEL=${mod} clean all
+# # # # done
+
+
+
+# #!/bin/bash
+
+# # --- Configuration ---
+# # Set the format for the MODULE variable passed to make.
+# # This needs to match the import path of your Python test file.
+# #
+# # Examples:
+# # - If your test file is at ./tests/test_count_up.py and test function is test_count_up:
+# #   TEST_MODULE_FORMAT="tests.test_%s"
+# # - If your test file is at ./test_count_up.py and test function is test_count_up:
+# #   TEST_MODULE_FORMAT="test_%s"
+# # - If your test file is at ./test/count_up/test_count_up.py and test function is test_count_up:
+# #   TEST_MODULE_FORMAT="test.%s.test_%s" # This was your original format, but likely incorrect path
+# #
+# # The %s will be replaced by the module name (e.g., count_up).
+# # Choose the format that matches your actual Python test file structure and import path.
+# TEST_MODULE_FORMAT="tests.%s.test_%s" # Assuming tests are in ./tests/ and named test_<module_name>.py
+
+# # Default action is to run all tests if no argument is given
+# RUN_ALL=true
+# MODULES_TO_RUN=()
+
+# # Check for arguments
+# if [ "$#" -gt 0 ]; then
+#     if [ "$1" = "all" ]; then
+#         RUN_ALL=true
+#     else
+#         RUN_ALL=false
+#         MODULES_TO_RUN+=("$1")
+#     fi
+# fi
+
+# # Find available modules in the rtl folder
+# # We assume module names correspond to the Verilog file names without the .v extension
+# AVAILABLE_MODULES=()
+# for file in $(ls rtl/*.v 2>/dev/null); do # Added 2>/dev/null to suppress errors if rtl is empty
+#     filename=$(basename "$file")
+#     modulename="${filename%.v}"
+#     AVAILABLE_MODULES+=("$modulename")
+# done
+
+# # Check if specific module requested exists
+# if [ "$RUN_ALL" = false ]; then
+#     module_exists=false
+#     for avail_mod in "${AVAILABLE_MODULES[@]}"; do
+#         if [ "$avail_mod" = "${MODULES_TO_RUN[0]}" ]; then
+#             module_exists=true
+#             break
+#         fi
+#     done
+#     if [ "$module_exists" = false ]; then
+#         echo "Error: Module '${MODULES_TO_RUN[0]}' not found in the rtl folder."
+#         echo "Available modules are: ${AVAILABLE_MODULES[*]}"
+#         exit 1
+#     fi
+#     # If a specific module is requested and exists, only run that one
+#     MODULES_TO_RUN=("${MODULES_TO_RUN[0]}")
+# else
+#     # If running all, use the list of found modules
+#     MODULES_TO_RUN=("${AVAILABLE_MODULES[@]}")
+# fi
+
+
+# # Run tests for the selected modules
+# if [ ${#MODULES_TO_RUN[@]} -eq 0 ]; then
+#     echo "No modules found in the rtl folder to test."
+#     exit 0
+# fi
+
+# for mod in "${MODULES_TO_RUN[@]}"
+# do
+#     echo "Running test for $mod"
+
+#     # Construct the MODULE variable based on the configured format
+#     # Note: If your test function name is different from test_<module_name>, you might need
+#     # a more complex way to construct this string or hardcode it per module if necessary.
+#     # The printf command formats the string, replacing %s with the value of $mod.
+#     CONSTRUCTED_MODULE=$(printf "$TEST_MODULE_FORMAT" "$mod" "$mod")
+
+#     # Now use the constructed MODULE variable in the make command
+#     make MODULE="$CONSTRUCTED_MODULE" TOPLEVEL="$mod" clean all
+#     if [ $? -ne 0 ]; then
+#         echo "Test for $mod failed!"
+#         # Optionally exit or continue to the next module
+#         # exit 1
+#     fi
+# done
+
+# echo "All requested tests finished."
+
+
+
+#!/bin/bash
+
+# --- Configuration ---
+# Set the format for the MODULE variable passed to make.
+# This needs to match the import path of your Python test file.
+#
+# Examples:
+# - If your test file is at ./tests/test_count_up.py and test function is test_count_up:
+#   TEST_MODULE_FORMAT="tests.test_%s"
+# - If your test file is at ./test_count_up.py and test function is test_count_up:
+#   TEST_MODULE_FORMAT="test_%s"
+# - If your test file is at ./test/count_up/test_count_up.py and test function is test_count_up:
+#   TEST_MODULE_FORMAT="test.%s.test_%s"
+#
+# The %s will be replaced by the module name (e.g., count_up).
+# Choose the format that matches your actual Python test file structure and import path.
+#
+# This format is also used to derive the expected file path for the test bench.
+# Dots '.' are replaced with slashes '/', and '.py' is appended.
+# E.g., "tests.test_%s" becomes "tests/test_%s.py"
+TEST_MODULE_FORMAT="tests.%s.test_%s" # Assuming tests are in ./tests/ and named test_<module_name>.py
+
+# Default action is to run all tests if no argument is given
+RUN_ALL=true
+MODULES_TO_RUN=()
+
+# Check for arguments
+if [ "$#" -gt 0 ]; then
+    if [ "$1" = "all" ]; then
+        RUN_ALL=true
+    else
+        RUN_ALL=false
+        MODULES_TO_RUN+=("$1")
+    fi
+fi
+
+# Find available modules in the rtl folder
+# We assume module names correspond to the Verilog file names without the .v extension
+AVAILABLE_MODULES=()
+for file in $(ls rtl/*.v 2>/dev/null); do # Added 2>/dev/null to suppress errors if rtl is empty
+    filename=$(basename "$file")
+    modulename="${filename%.v}"
+    AVAILABLE_MODULES+=("$modulename")
+done
+
+# --- List found modules if running all ---
+if [ "$RUN_ALL" = true ]; then
+    if [ ${#AVAILABLE_MODULES[@]} -eq 0 ]; then
+        echo "No modules found in the rtl folder."
+    else
+        echo "Found the following modules in rtl:"
+        for mod in "${AVAILABLE_MODULES[@]}"; do
+            echo "  - $mod"
+        done
+        echo "" # Add a newline
+    fi
+fi
+# ------------------------------------------
+
+
+# Check if specific module requested exists and filter available modules
+if [ "$RUN_ALL" = false ]; then
+    module_found_in_rtl=false
+    for avail_mod in "${AVAILABLE_MODULES[@]}"; do
+        if [ "$avail_mod" = "${MODULES_TO_RUN[0]}" ]; then
+            module_found_in_rtl=true
+            break
+        fi
+    done
+
+    if [ "$module_found_in_rtl" = false ]; then
+        echo "Error: Module '${MODULES_TO_RUN[0]}' not found in the rtl folder (${AVAILABLE_MODULES[*]})."
+        exit 1
+    fi
+
+    # If a specific module is requested and exists in RTL, only consider that one
+    MODULES_TO_RUN=("${MODULES_TO_RUN[0]}")
+else
+    # If running all, start with the list of found modules
+    MODULES_TO_RUN=("${AVAILABLE_MODULES[@]}")
+fi
+
+# Filter MODULES_TO_RUN to only include those with a corresponding test bench file
+FILTERED_MODULES_TO_RUN=()
+echo "Checking for test bench files..."
+for mod in "${MODULES_TO_RUN[@]}"
+do
+    # Construct the potential test file path
+    # Replace %s with the module name
+    TEST_FILE_PATH_FORMAT=$(printf "$TEST_MODULE_FORMAT" "$mod" "$mod")
+    # Replace dots with slashes and append .py
+    TEST_FILE_PATH=$(echo "$TEST_FILE_PATH_FORMAT" | sed 's/\./\//g').py
+
+    echo -n "  Checking for test bench for $mod at $TEST_FILE_PATH... "
+    if [ -f "$TEST_FILE_PATH" ]; then
+        echo "Found."
+        FILTERED_MODULES_TO_RUN+=("$mod")
+    else
+        echo "Not found. Skipping."
+    fi
+done
+
+MODULES_TO_RUN=("${FILTERED_MODULES_TO_RUN[@]}")
+
+
+# Run tests for the filtered modules
+if [ ${#MODULES_TO_RUN[@]} -eq 0 ]; then
+    echo "No modules with a corresponding test bench found."
+    exit 0
+fi
+
+echo "" # Add a newline for cleaner output
+for mod in "${MODULES_TO_RUN[@]}"
+do
+    echo "Running test for $mod"
+
+    # Construct the MODULE variable based on the configured format
+    CONSTRUCTED_MODULE=$(printf "$TEST_MODULE_FORMAT" "$mod" "$mod")
+
+    # Now use the constructed MODULE variable in the make command
+    make MODULE="$CONSTRUCTED_MODULE" TOPLEVEL="$mod" clean all
+    if [ $? -ne 0 ]; then
+        echo "Test for $mod failed!"
+        # Optionally exit or continue to the next module
+        # exit 1
+    fi
+done
+
+echo "All requested tests finished."

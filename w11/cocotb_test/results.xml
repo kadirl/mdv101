@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1745715087" />
+    <testcase name="basic_count" classname="tests.count_up.test_count_up" file="/Users/macbookair/mdv101/w11/cocotb_test/tests/count_up/test_count_up.py" lineno="6" time="0.0026590824127197266" sim_time_ns="51.001" ratio_time="19179.924531874833" />
+  </testsuite>
+</testsuites>
