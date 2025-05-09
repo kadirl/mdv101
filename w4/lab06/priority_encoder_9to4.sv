@@ -17,15 +17,15 @@ module priority_encoder_9to4 (
 
 always @(*) begin
   casez (input_vec)
-    9'bzzzzzzzz1: out = 'd1;
-    9'bzzzzzzz10: out = 'd2;
-    9'bzzzzzz100: out = 'd3;
-    9'bzzzzz1000: out = 'd4;
-    9'bzzzz10000: out = 'd5;
-    9'bzzz100000: out = 'd6;
-    9'bzz1000000: out = 'd7;
-    9'bz10000000: out = 'd8;
-    9'b100000000: out = 'd9;
+    9'b000000001: out = 'd1;
+    9'b00000001z: out = 'd2;
+    9'b0000001zz: out = 'd3;
+    9'b000001zzz: out = 'd4;
+    9'b00001zzzz: out = 'd5;
+    9'b0001zzzzz: out = 'd6;
+    9'b001zzzzzz: out = 'd7;
+    9'b01zzzzzzz: out = 'd8;
+    9'b1zzzzzzzz: out = 'd9;
     default: out = 'd0;
   endcase
 end

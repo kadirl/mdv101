@@ -152,7 +152,4 @@ VL_ATTR_COLD void Vfibonacci_generator___024root___ctor_var_reset(Vfibonacci_gen
     vlSelf->fibonacci_generator__DOT__fib_prev2 = VL_RAND_RESET_I(32);
     vlSelf->fibonacci_generator__DOT__fib_out1 = VL_RAND_RESET_I(32);
     vlSelf->__Vtrigprevexpr___TOP__clk__0 = VL_RAND_RESET_I(1);
-    for (int __Vi0 = 0; __Vi0 < 2; ++__Vi0) {
-        vlSelf->__Vm_traceActivity[__Vi0] = 0;
-    }
 }

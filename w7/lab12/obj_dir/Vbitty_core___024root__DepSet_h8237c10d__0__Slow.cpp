@@ -231,9 +231,15 @@ VL_ATTR_COLD void Vbitty_core___024root___stl_sequent__TOP__0(Vbitty_core___024r
                                                   > (IData)(vlSelfRef.mux_out))
                                                   ? 1U
                                                   : 2U))
-                                             : VL_SHIFTR_III(16,16,16, (IData)(vlSelfRef.reg_s_out), (IData)(vlSelfRef.mux_out)))
+                                             : ((IData)(vlSelfRef.reg_s_out) 
+                                                >> 
+                                                (0xfU 
+                                                 & (IData)(vlSelfRef.mux_out))))
                                          : ((1U & (IData)(bitty_core__DOT__alu_sel))
-                                             ? VL_SHIFTL_III(16,16,16, (IData)(vlSelfRef.reg_s_out), (IData)(vlSelfRef.mux_out))
+                                             ? ((IData)(vlSelfRef.reg_s_out) 
+                                                << 
+                                                (0xfU 
+                                                 & (IData)(vlSelfRef.mux_out)))
                                              : ((IData)(vlSelfRef.reg_s_out) 
                                                 ^ (IData)(vlSelfRef.mux_out))))
                                      : ((2U & (IData)(bitty_core__DOT__alu_sel))

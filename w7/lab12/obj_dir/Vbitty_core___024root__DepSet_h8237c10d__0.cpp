@@ -38,17 +38,17 @@ VL_INLINE_OPT void Vbitty_core___024root___nba_sequent__TOP__0(Vbitty_core___024
     __Vtableidx1 = 0;
     // Body
     if (vlSelfRef.reset) {
-        vlSelfRef.bitty_core__DOT__reg_c_inst__DOT__storage = 0U;
-        vlSelfRef.bitty_core__DOT__reg_s_inst__DOT__storage = 0U;
-        vlSelfRef.bitty_core__DOT__reg0_inst__DOT__storage = 0U;
-        vlSelfRef.bitty_core__DOT__reg1_inst__DOT__storage = 0U;
-        vlSelfRef.bitty_core__DOT__reg2_inst__DOT__storage = 0U;
-        vlSelfRef.bitty_core__DOT__reg3_inst__DOT__storage = 0U;
-        vlSelfRef.bitty_core__DOT__reg4_inst__DOT__storage = 0U;
-        vlSelfRef.bitty_core__DOT__reg5_inst__DOT__storage = 0U;
-        vlSelfRef.bitty_core__DOT__reg6_inst__DOT__storage = 0U;
-        vlSelfRef.bitty_core__DOT__reg7_inst__DOT__storage = 0U;
-        vlSelfRef.bitty_core__DOT__reg_instr_inst__DOT__storage = 0U;
+        vlSelfRef.bitty_core__DOT__reg_c_inst__DOT__storage = 0xaU;
+        vlSelfRef.bitty_core__DOT__reg_s_inst__DOT__storage = 0xaU;
+        vlSelfRef.bitty_core__DOT__reg0_inst__DOT__storage = 0xaU;
+        vlSelfRef.bitty_core__DOT__reg1_inst__DOT__storage = 0xaU;
+        vlSelfRef.bitty_core__DOT__reg2_inst__DOT__storage = 0xaU;
+        vlSelfRef.bitty_core__DOT__reg3_inst__DOT__storage = 0xaU;
+        vlSelfRef.bitty_core__DOT__reg4_inst__DOT__storage = 0xaU;
+        vlSelfRef.bitty_core__DOT__reg5_inst__DOT__storage = 0xaU;
+        vlSelfRef.bitty_core__DOT__reg6_inst__DOT__storage = 0xaU;
+        vlSelfRef.bitty_core__DOT__reg7_inst__DOT__storage = 0xaU;
+        vlSelfRef.bitty_core__DOT__reg_instr_inst__DOT__storage = 0xaU;
         vlSelfRef.bitty_core__DOT__control_inst__DOT__state = 0U;
     } else {
         if (vlSelfRef.bitty_core__DOT__en_c) {
@@ -232,9 +232,15 @@ VL_INLINE_OPT void Vbitty_core___024root___nba_sequent__TOP__0(Vbitty_core___024
                                                   > (IData)(vlSelfRef.mux_out))
                                                   ? 1U
                                                   : 2U))
-                                             : VL_SHIFTR_III(16,16,16, (IData)(vlSelfRef.reg_s_out), (IData)(vlSelfRef.mux_out)))
+                                             : ((IData)(vlSelfRef.reg_s_out) 
+                                                >> 
+                                                (0xfU 
+                                                 & (IData)(vlSelfRef.mux_out))))
                                          : ((1U & (IData)(bitty_core__DOT__alu_sel))
-                                             ? VL_SHIFTL_III(16,16,16, (IData)(vlSelfRef.reg_s_out), (IData)(vlSelfRef.mux_out))
+                                             ? ((IData)(vlSelfRef.reg_s_out) 
+                                                << 
+                                                (0xfU 
+                                                 & (IData)(vlSelfRef.mux_out)))
                                              : ((IData)(vlSelfRef.reg_s_out) 
                                                 ^ (IData)(vlSelfRef.mux_out))))
                                      : ((2U & (IData)(bitty_core__DOT__alu_sel))

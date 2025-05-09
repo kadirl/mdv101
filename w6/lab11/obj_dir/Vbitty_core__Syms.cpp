@@ -18,7 +18,7 @@ Vbitty_core__Syms::Vbitty_core__Syms(VerilatedContext* contextp, const char* nam
     , TOP{this, namep}
 {
         // Check resources
-        Verilated::stackCheck(22);
+        Verilated::stackCheck(82);
     // Configure time unit / time precision
     _vm_contextp__->timeunit(-12);
     _vm_contextp__->timeprecision(-12);

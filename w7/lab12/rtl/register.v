@@ -11,6 +11,7 @@ module register (
     always @(posedge clk or posedge reset) begin
         if (reset) begin
             storage <= 16'b0; // Reset to 0
+            // storage <= 16'd10; // REMOVE
         end else if (en) begin
             storage <= d_in; // Load data when enabled
         end

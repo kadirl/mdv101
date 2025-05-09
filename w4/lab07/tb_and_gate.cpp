@@ -45,6 +45,8 @@ int main(int argc, char **argv)
     vcd_trace->dump(40);
     std::cout << "a=1, b=1 -> y=" << (int)and_gate->y << std::endl;
 
+    vcd_trace->dump(50);
+
     delete and_gate;  // Free memory.
     vcd_trace->close();
     return 0;

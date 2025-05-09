@@ -36,6 +36,8 @@ bool test (
         test_output = true;
     } else {
         std::cout << "FAIL" << std::endl;
+        // std::cout << "in_a: " << in_a << "\t in_b: " << in_b << "\tsel: " << sel << std::endl;
+        // std::cout << "Expected: " << expect << "\tGot: " << res << std::endl << std::endl;
     }
 
     std::cout << "in_a: " << in_a << "\t in_b: " << in_b << "\tsel: " << sel << std::endl;
@@ -53,8 +55,12 @@ uint16_t referenceModel(uint16_t in_a, uint16_t in_b, uint16_t sel) {
         case 2: return in_a & in_b;
         case 3: return in_a | in_b;
         case 4: return in_a ^ in_b;
-        case 5: return in_a << in_b;
-        case 6: return in_a >> in_b;
+        case 5: return in_a << (in_b % 16);
+            // if (in_b >= 16) return 0;
+            // else return in_a << in_b;
+        case 6: return in_a >> (in_b % 16);
+            // if (in_b >= 16) return 0;
+            // else return in_a >> in_b;
         case 7:
             if (in_a == in_b) return 0;
             else if (in_a > in_b) return 1;
@@ -75,7 +81,7 @@ int main() {
 
     for (int i = 0; i < test_count; ++i) {
         uint16_t in_a = generateRandomUInt16(0, 65535);
-        uint16_t in_b = generateRandomUInt16(0, 15); // Shift operations reasonable range
+        uint16_t in_b = generateRandomUInt16(0, 65535); // Shift operations reasonable range
         uint16_t sel = generateRandomUInt16(0, 7);
 
         uint16_t expect = referenceModel(in_a, in_b, sel);

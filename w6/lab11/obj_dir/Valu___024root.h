@@ -25,14 +25,7 @@ class alignas(VL_CACHE_LINE_BYTES) Valu___024root final : public VerilatedModule
     VL_IN16(in_a,15,0);
     VL_IN16(in_b,15,0);
     VL_OUT16(alu_out,15,0);
-    SData/*15:0*/ alu__DOT__arithmetic_out;
-    SData/*15:0*/ alu__DOT__logic_out;
-    SData/*15:0*/ alu__DOT__AU__DOT__ab;
-    SData/*15:0*/ alu__DOT__AU__DOT__anotb;
-    SData/*15:0*/ alu__DOT__AU__DOT__aorb;
-    SData/*15:0*/ alu__DOT__AU__DOT__aornotb;
     IData/*31:0*/ __VactIterCount;
-    VlUnpacked<CData/*0:0*/, 2> __Vm_traceActivity;
     VlTriggerVec<1> __VstlTriggered;
     VlTriggerVec<1> __VicoTriggered;
     VlTriggerVec<0> __VactTriggered;

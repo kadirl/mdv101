@@ -29,7 +29,7 @@ VL_INLINE_OPT void Vregister___024root___nba_sequent__TOP__0(Vregister___024root
     auto& vlSelfRef = std::ref(*vlSelf).get();
     // Body
     if (vlSelfRef.reset) {
-        vlSelfRef.register__DOT__storage = 0U;
+        vlSelfRef.register__DOT__storage = 0xaU;
     } else if (vlSelfRef.en) {
         vlSelfRef.register__DOT__storage = vlSelfRef.d_in;
     }

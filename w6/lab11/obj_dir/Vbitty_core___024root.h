@@ -29,10 +29,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vbitty_core___024root final : public Verilate
     CData/*0:0*/ bitty_core__DOT__en_5;
     CData/*0:0*/ bitty_core__DOT__en_6;
     CData/*0:0*/ bitty_core__DOT__en_7;
-    CData/*0:0*/ bitty_core__DOT__mode;
-    CData/*0:0*/ bitty_core__DOT__cout;
-    CData/*3:0*/ bitty_core__DOT__alu_sel;
-    CData/*2:0*/ bitty_core__DOT__mux_sel;
     CData/*1:0*/ bitty_core__DOT__control_inst__DOT__state;
     CData/*1:0*/ bitty_core__DOT__control_inst__DOT__next_state;
     CData/*0:0*/ __VstlFirstIteration;
@@ -64,15 +60,8 @@ class alignas(VL_CACHE_LINE_BYTES) Vbitty_core___024root final : public Verilate
     SData/*15:0*/ bitty_core__DOT__reg5_inst__DOT__storage;
     SData/*15:0*/ bitty_core__DOT__reg6_inst__DOT__storage;
     SData/*15:0*/ bitty_core__DOT__reg7_inst__DOT__storage;
-    SData/*15:0*/ bitty_core__DOT__alu_inst__DOT__arithmetic_out;
-    SData/*15:0*/ bitty_core__DOT__alu_inst__DOT__logic_out;
-    SData/*15:0*/ bitty_core__DOT__alu_inst__DOT__AU__DOT__ab;
-    SData/*15:0*/ bitty_core__DOT__alu_inst__DOT__AU__DOT__anotb;
-    SData/*15:0*/ bitty_core__DOT__alu_inst__DOT__AU__DOT__aorb;
-    SData/*15:0*/ bitty_core__DOT__alu_inst__DOT__AU__DOT__aornotb;
     IData/*31:0*/ __VactIterCount;
     VlUnpacked<SData/*15:0*/, 8> bitty_core__DOT__mux_in_array;
-    VlUnpacked<CData/*0:0*/, 2> __Vm_traceActivity;
     VlTriggerVec<1> __VstlTriggered;
     VlTriggerVec<2> __VactTriggered;
     VlTriggerVec<2> __VnbaTriggered;

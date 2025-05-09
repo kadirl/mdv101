@@ -71,7 +71,6 @@ VL_ATTR_COLD void Valu___024root___dump_triggers__stl(Valu___024root* vlSelf) {
 #endif  // VL_DEBUG
 
 void Valu___024root___ico_sequent__TOP__0(Valu___024root* vlSelf);
-VL_ATTR_COLD void Valu___024root____Vm_traceActivitySetAll(Valu___024root* vlSelf);
 
 VL_ATTR_COLD void Valu___024root___eval_stl(Valu___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Valu___024root___eval_stl\n"); );
@@ -80,7 +79,6 @@ VL_ATTR_COLD void Valu___024root___eval_stl(Valu___024root* vlSelf) {
     // Body
     if ((1ULL & vlSelfRef.__VstlTriggered.word(0U))) {
         Valu___024root___ico_sequent__TOP__0(vlSelf);
-        Valu___024root____Vm_traceActivitySetAll(vlSelf);
     }
 }
 
@@ -140,15 +138,6 @@ VL_ATTR_COLD void Valu___024root___dump_triggers__nba(Valu___024root* vlSelf) {
 }
 #endif  // VL_DEBUG
 
-VL_ATTR_COLD void Valu___024root____Vm_traceActivitySetAll(Valu___024root* vlSelf) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Valu___024root____Vm_traceActivitySetAll\n"); );
-    Valu__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    auto& vlSelfRef = std::ref(*vlSelf).get();
-    // Body
-    vlSelfRef.__Vm_traceActivity[0U] = 1U;
-    vlSelfRef.__Vm_traceActivity[1U] = 1U;
-}
-
 VL_ATTR_COLD void Valu___024root___ctor_var_reset(Valu___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Valu___024root___ctor_var_reset\n"); );
     Valu__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
@@ -162,13 +151,4 @@ VL_ATTR_COLD void Valu___024root___ctor_var_reset(Valu___024root* vlSelf) {
     vlSelf->carry_out = VL_RAND_RESET_I(1);
     vlSelf->compare = VL_RAND_RESET_I(1);
     vlSelf->alu_out = VL_RAND_RESET_I(16);
-    vlSelf->alu__DOT__arithmetic_out = VL_RAND_RESET_I(16);
-    vlSelf->alu__DOT__logic_out = VL_RAND_RESET_I(16);
-    vlSelf->alu__DOT__AU__DOT__ab = VL_RAND_RESET_I(16);
-    vlSelf->alu__DOT__AU__DOT__anotb = VL_RAND_RESET_I(16);
-    vlSelf->alu__DOT__AU__DOT__aorb = VL_RAND_RESET_I(16);
-    vlSelf->alu__DOT__AU__DOT__aornotb = VL_RAND_RESET_I(16);
-    for (int __Vi0 = 0; __Vi0 < 2; ++__Vi0) {
-        vlSelf->__Vm_traceActivity[__Vi0] = 0;
-    }
 }

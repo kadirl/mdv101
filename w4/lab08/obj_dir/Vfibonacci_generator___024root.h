@@ -25,7 +25,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vfibonacci_generator___024root final : public
     IData/*31:0*/ fibonacci_generator__DOT__fib_prev2;
     IData/*31:0*/ fibonacci_generator__DOT__fib_out1;
     IData/*31:0*/ __VactIterCount;
-    VlUnpacked<CData/*0:0*/, 2> __Vm_traceActivity;
     VlTriggerVec<1> __VstlTriggered;
     VlTriggerVec<1> __VactTriggered;
     VlTriggerVec<1> __VnbaTriggered;

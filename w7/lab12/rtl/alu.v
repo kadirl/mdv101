@@ -12,8 +12,8 @@ module alu(
             3'b010: alu_out = in_a & in_b;
             3'b011: alu_out = in_a | in_b;
             3'b100: alu_out = in_a ^ in_b;
-            3'b101: alu_out = in_a << in_b;
-            3'b110: alu_out = in_a >> in_b;
+            3'b101: alu_out = in_a << in_b[3:0];
+            3'b110: alu_out = in_a >> in_b[3:0];
             3'b111: begin
                 if (in_a == in_b) begin
                     alu_out = 16'b00; // 0 if equal

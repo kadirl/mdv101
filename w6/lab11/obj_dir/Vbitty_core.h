@@ -12,7 +12,6 @@
 
 class Vbitty_core__Syms;
 class Vbitty_core___024root;
-class VerilatedVcdC;
 
 // This class is the main interface to the Verilated model
 class alignas(VL_CACHE_LINE_BYTES) Vbitty_core VL_NOT_FINAL : public VerilatedModel {
@@ -24,7 +23,7 @@ class alignas(VL_CACHE_LINE_BYTES) Vbitty_core VL_NOT_FINAL : public VerilatedMo
 
     // CONSTEXPR CAPABILITIES
     // Verilated with --trace?
-    static constexpr bool traceCapable = true;
+    static constexpr bool traceCapable = false;
 
     // PORTS
     // The application code writes and reads these signals to
@@ -98,7 +97,6 @@ class alignas(VL_CACHE_LINE_BYTES) Vbitty_core VL_NOT_FINAL : public VerilatedMo
     /// Re-init after cloning the model at the process level (e.g. fork in Linux)
     /// Re-allocate necessary resources. Called after cloning.
     void atClone() const;
-    std::unique_ptr<VerilatedTraceConfig> traceConfig() const override final;
   private:
     // Internal functions - trace registration
     void traceBaseModel(VerilatedTraceBaseC* tfp, int levels, int options);

@@ -5,7 +5,6 @@ module register (
     input wire en,           // Enable input
     output reg [15:0] d_out  // Data output
 );
-
     reg [15:0] storage; // Internal storage register
 
     always @(posedge clk or posedge reset) begin

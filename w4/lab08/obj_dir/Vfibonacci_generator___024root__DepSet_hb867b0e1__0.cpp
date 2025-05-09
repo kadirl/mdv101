@@ -20,7 +20,6 @@ void Vfibonacci_generator___024root___eval_nba(Vfibonacci_generator___024root* v
     // Body
     if ((1ULL & vlSelfRef.__VnbaTriggered.word(0U))) {
         Vfibonacci_generator___024root___nba_sequent__TOP__0(vlSelf);
-        vlSelfRef.__Vm_traceActivity[1U] = 1U;
     }
 }
 
