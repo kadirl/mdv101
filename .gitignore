@@ -3,6 +3,7 @@
 *.iml
 cmake-build-*/
 .clion*
+.vscode/
 
 # Ignore CMake-generated files
 CMakeCache.txt
@@ -31,8 +32,17 @@ Makefile
 *.iws
 *.ipr
 
-#Ignore sim files
+# Ignore Verilator simulation files
+obj_dir/
+
+# Ignore cocotb sim_files
 sim_build/
 
-.DS_Store
+# Ignore Python cache files
+__pycache__/
+env/
+*.pyc
+*.pyo
+*.pytest_cache
 
+.DS_Store
