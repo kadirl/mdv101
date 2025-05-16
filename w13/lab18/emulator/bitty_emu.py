@@ -45,7 +45,7 @@ class BittyEmulator:
             "alu_select": (instruction >> 2) & 0b111,
             "mode": instruction & 0b11,
             "i_type_immediate": (instruction >> 5) & 0xFF,
-            "j_type_immediate": (instruction >> 4) & 0b111111111111,
+            "j_type_immediate": (instruction >> 4) & 0b11111111,
             "j_type_cond": (instruction >> 2) & 0b11,
         }
 

@@ -7,7 +7,7 @@ from cocotb.triggers import RisingEdge, Timer, ClockCycles, ReadOnly, NextTimeSt
 
 async def init_placeholder_memory(dut):
     """Initialize memory with some values."""
-    for i in range(1 << 16 - 1):
+    for i in range((1 << 8)):
         dut.memory[i].value = i + 1
 
 

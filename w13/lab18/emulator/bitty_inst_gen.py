@@ -3,7 +3,7 @@ import random
 
 
 class BittyInstructionGenerator:
-    def generate(self, number=1<<12):
+    def generate(self, number=1<<8):
         instruction = 0
 
         # R-type parameters
@@ -17,7 +17,7 @@ class BittyInstructionGenerator:
         alu_select = random.randint(0, 7)
 
         # J-type parameters
-        j_type_immediate = random.randint(0, min(1 << 12 - 1, number))
+        j_type_immediate = random.randint(0, min(1 << 8 - 1, number))
         cond = random.randint(0, 2)
 
         # Common parameter
